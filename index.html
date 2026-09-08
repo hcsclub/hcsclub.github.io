@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화천시니어클럽 | 일하는 100세, 아름다운 시니어</title>
+<meta name="description" content="화천시니어클럽은 화천군 만60세 이상 어르신들에게 일자리와 사회활동 기회를 제공하는 노인일자리 전담기관입니다.">
+<meta property="og:title" content="화천시니어클럽">
+<meta property="og:description" content="일하는 100세, 아름다운 시니어 — 화천군 노인일자리 전담기관 화천시니어클럽입니다.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/hero-main.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F1E3;
+    --paper:#FFFDF8;
+    --forest:#2F5B45;
+    --forest-dark:#203E30;
+    --sage:#8CAE95;
+    --ochre:#C98A2B;
+    --berry:#A93F4C;
+    --ink:#2B2620;
+    --ink-soft:#5B5348;
+    --line:#E4DBC6;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:18px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Noto Serif KR', serif;
+    color:var(--forest-dark);
+    margin:0;
+    line-height:1.4;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(247,241,227,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;font-size:1.45rem;color:var(--forest-dark);
+    text-decoration:none;letter-spacing:-0.01em;
+  }
+  .brand span{color:var(--berry);}
+  nav ul{
+    list-style:none;display:flex;gap:8px;margin:0;padding:0;
+  }
+  nav a{
+    display:inline-block;
+    text-decoration:none;font-weight:500;font-size:1rem;
+    color:var(--ink-soft);padding:10px 16px;border-radius:999px;
+    transition:background .2s, color .2s;
+  }
+  nav a:hover, nav a:focus-visible{background:var(--forest);color:#fff;}
+  .nav-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;}
+  .hero-media{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    max-height:560px;
+    overflow:hidden;
+  }
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;object-position:center 40%;
+  }
+  .hero-fade{
+    position:absolute;left:0;right:0;bottom:0;height:45%;
+    background:linear-gradient(to bottom, rgba(247,241,227,0) 0%, var(--cream) 92%);
+    pointer-events:none;
+  }
+  .hero-copy{
+    max-width:var(--maxw);margin:0 auto;padding:0 28px;
+    margin-top:-38px;position:relative;z-index:2;
+    padding-bottom:8px;
+  }
+  .hero-copy p{
+    font-size:1.15rem;color:var(--ink-soft);max-width:640px;margin:14px 0 26px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:13px 26px;border-radius:8px;
+    text-decoration:none;font-weight:700;font-size:1rem;
+    border:2px solid transparent;transition:transform .15s, background .2s, color .2s;
+  }
+  .btn-primary{background:var(--forest);color:#fff;}
+  .btn-primary:hover{background:var(--forest-dark);}
+  .btn-outline{border-color:var(--forest);color:var(--forest-dark);}
+  .btn-outline:hover{background:var(--forest);color:#fff;}
+
+  /* ---------- Intro ---------- */
+  .intro{padding:56px 0 8px;}
+  .intro .rule{
+    width:56px;height:4px;background:var(--berry);margin-bottom:22px;border-radius:2px;
+  }
+  .intro h2{font-size:1.9rem;max-width:760px;}
+  .intro p{font-size:1.15rem;color:var(--ink-soft);max-width:760px;margin-top:16px;}
+
+  /* ---------- Section heading shared ---------- */
+  .section{padding:64px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
+    margin-bottom:32px;flex-wrap:wrap;
+  }
+  .section-head h2{font-size:1.7rem;}
+  .section-head .more{
+    font-weight:500;color:var(--forest-dark);text-decoration:none;
+    border-bottom:2px solid var(--sage);padding-bottom:2px;white-space:nowrap;
+  }
+  .section-head .more:hover{border-color:var(--forest-dark);}
+
+  /* ---------- Business gallery ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-auto-rows:14px;
+    gap:16px;
+  }
+  .gcard{
+    position:relative;border-radius:6px;overflow:hidden;
+    background:var(--forest-dark);
+    grid-column:span 3;grid-row:span 18;
+  }
+  .gcard.wide{grid-column:span 6;grid-row:span 22;}
+  .gcard.tall{grid-row:span 22;}
+  .gcard img{
+    width:100%;height:100%;object-fit:cover;
+    position:absolute;inset:0;
+  }
+  .gcard-fade{
+    position:absolute;left:0;right:0;bottom:0;height:65%;
+    background:linear-gradient(to top, rgba(32,62,48,0.92) 0%, rgba(32,62,48,0.15) 62%, rgba(32,62,48,0) 100%);
+  }
+  .gcard-label{
+    position:absolute;left:0;right:0;bottom:0;padding:18px 20px;color:#fff;z-index:2;
+  }
+  .gcard-label .tag{
+    display:inline-block;font-size:.82rem;font-weight:700;color:var(--ochre);
+    background:rgba(255,255,255,0.14);padding:3px 10px;border-radius:999px;margin-bottom:8px;
+  }
+  .gcard-label h3{color:#fff;font-size:1.15rem;}
+  .gcard.wide .gcard-label h3{font-size:1.5rem;}
+
+  @media (max-width:760px){
+    .gallery{grid-template-columns:repeat(2,1fr);}
+    .gcard{grid-column:span 2 !important;grid-row:span 20 !important;}
+  }
+
+  /* ---------- Program types ---------- */
+  .types{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+  }
+  .type-card{
+    background:var(--paper);border:1px solid var(--line);
+    border-top:5px solid var(--forest);
+    border-radius:6px;padding:26px 24px;
+  }
+  .type-card.market{border-top-color:var(--ochre);}
+  .type-card.social{border-top-color:var(--sage);}
+  .type-card.job{border-top-color:var(--berry);}
+  .type-card h3{font-size:1.2rem;margin-bottom:10px;}
+  .type-card p{color:var(--ink-soft);margin:0 0 16px;font-size:.99rem;}
+  .type-card ul{margin:0;padding-left:20px;color:var(--ink-soft);}
+  .type-card li{margin-bottom:6px;}
+  @media (max-width:980px){.types{grid-template-columns:1fr 1fr;}}
+  @media (max-width:700px){.types{grid-template-columns:1fr;}}
+
+  /* ---------- Visit / contact ---------- */
+  .visit{
+    background:var(--forest-dark);color:#F1ECDD;
+    border-radius:10px;padding:44px 40px;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:36px;
+  }
+  .visit h2{color:#fff;font-size:1.6rem;margin-bottom:14px;}
+  .visit p{color:#D8D2BF;margin:0 0 8px;font-size:1.05rem;}
+  .visit .addr{font-weight:700;color:#fff;}
+  .visit-map{
+    border-radius:8px;overflow:hidden;
+    min-height:180px;
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  .visit-map img{width:100%;height:100%;object-fit:cover;}
+  @media (max-width:760px){.visit{grid-template-columns:1fr;padding:32px 24px;}}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:32px 0 40px;color:var(--ink-soft);font-size:.95rem;}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center;}
+  .foot-links a{margin-left:18px;text-decoration:none;color:var(--ink-soft);}
+  .foot-links a:first-child{margin-left:0;}
+  .foot-links a:hover{color:var(--forest-dark);}
+  @media (max-width:600px){
+    nav ul{gap:2px;}
+    nav a{padding:8px 10px;font-size:.92rem;}
+    .brand{font-size:1.2rem;}
+    body{font-size:16.5px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a href="index.html" class="brand">화천<span>시니어클럽</span></a>
+    <nav aria-label="주 메뉴">
+      <ul>
+        <li><a href="about.html">기관소개</a></li>
+        <li><a href="programs.html">사업안내</a></li>
+        <li><a href="join.html">참여안내</a></li>
+        <li><a href="news.html">소식</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-media">
+      <img src="images/hero-main.jpg" alt="화천시니어클럽 — 일하는 100세, 아름다운 시니어. 화천의 산과 하천을 배경으로 한 수채화 일러스트">
+      <div class="hero-fade"></div>
+    </div>
+    <div class="hero-copy">
+      <p>지역내 만 60세 이상 어르신들에게 일할 기회와 일자리를 공급하여, 소득창출과 사회참여를 통해 활기차고 행복한 노후를 지원하는 화천군 노인일자리 전담기관입니다.</p>
+      <div class="hero-actions">
+        <a href="programs.html" class="btn btn-primary">사업 살펴보기</a>
+        <a href="join.html" class="btn btn-outline">참여 신청 안내</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro wrap">
+    <div class="rule"></div>
+    <h2>어르신 한 분 한 분의 하루가, 화천의 활력이 됩니다</h2>
+    <p>공익활동부터 시장형 사업단까지, 화천시니어클럽은 열다섯 개의 사업을 통해 470여 명의 어르신과 함께하고 있습니다. 아래에서 각 사업단이 실제로 어떤 일을 하고 있는지 사진으로 먼저 만나보세요.</p>
+  </section>
+
+  <section class="section wrap" id="programs">
+    <div class="section-head">
+      <h2>사업단 현장</h2>
+      <a href="programs.html" class="more">사업안내 전체 보기</a>
+    </div>
+
+    <div class="gallery">
+      <div class="gcard wide">
+        <img src="images/business-volunteer.jpg" alt="공공시설봉사 사업단 어르신들이 노란 조끼를 입고 지역사회 봉사활동을 위해 모여 있는 모습">
+        <div class="gcard-fade"></div>
+        <div class="gcard-label">
+          <span class="tag">공익형</span>
+          <h3>공공시설봉사 — 관내 공원·도로 환경정화</h3>
+        </div>
+      </div>
+
+      <div class="gcard">
+        <img src="images/business-beansprout.jpg" alt="우리동네 콩나물 사업단 어르신들이 무농약 콩나물을 세척하고 포장하는 모습">
+        <div class="gcard-fade"></div>
+        <div class="gcard-label">
+          <span class="tag">시장형</span>
+          <h3>우리동네콩나물</h3>
+        </div>
+      </div>
+
+      <div class="gcard">
+        <img src="images/business-nurungji.jpg" alt="할머니 누룽지 사업단 어르신들이 위생모를 쓰고 누룽지와 쌀과자를 만드는 모습">
+        <div class="gcard-fade"></div>
+        <div class="gcard-label">
+          <span class="tag">시장형</span>
+          <h3>할머니 누룽지쌀과자</h3>
+        </div>
+      </div>
+
+      <div class="gcard">
+        <img src="images/business-farming.jpg" alt="휴경지경작 사업단 어르신들이 비닐하우스에서 아스파라거스를 수확하는 모습">
+        <div class="gcard-fade"></div>
+        <div class="gcard-label">
+          <span class="tag">시장형</span>
+          <h3>휴경지경작 — 아스파라거스·비타민나무</h3>
+        </div>
+      </div>
+
+      <div class="gcard">
+        <img src="images/business-knitting.jpg" alt="뜨개매듭 사업단 어르신들이 모여 앉아 손뜨개로 생활용품을 만드는 모습">
+        <div class="gcard-fade"></div>
+        <div class="gcard-label">
+          <span class="tag">시장형</span>
+          <h3>뜨개매듭사업</h3>
+        </div>
+      </div>
+
+      <div class="gcard">
+        <img src="images/business-paperbag.jpg" alt="종이사랑 사업단 어르신들이 종이가방을 수작업으로 제작하는 모습">
+        <div class="gcard-fade"></div>
+        <div class="gcard-label">
+          <span class="tag">시장형</span>
+          <h3>종이사랑사업</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="types">
+    <div class="section-head">
+      <h2>사업 유형 안내</h2>
+    </div>
+    <div class="types">
+      <div class="type-card">
+        <h3>공익형</h3>
+        <p>만 65세 이상 기초노령연금수급자를 대상으로, 지역사회에 필요한 봉사·안부확인 활동을 지원합니다.</p>
+        <ul>
+          <li>공공시설봉사 — 공원 및 도로 환경정화</li>
+          <li>노노케어 — 노인 말벗, 안부확인</li>
+        </ul>
+      </div>
+      <div class="type-card market">
+        <h3>시장형</h3>
+        <p>만 60세 이상 기초노령연금 미수급자를 대상으로, 생산과 판매 활동을 통해 소득을 창출합니다.</p>
+        <ul>
+          <li>휴경지경작 · 우리동네콩나물 · 뜨개매듭사업</li>
+          <li>종이사랑사업 · 할머니 누룽지쌀과자</li>
+        </ul>
+      </div>
+      <div class="type-card social">
+        <h3>사회서비스형</h3>
+        <p>돌봄·안전·교육 등 공익성은 높지만 시장에서 채워지기 어려운 분야에서, 어르신의 경력과 활동력을 살려 필요한 서비스를 제공하는 유형입니다.</p>
+        <ul>
+          <li>2025년 11개 사업 · 430명 참여</li>
+          <li>2026년 15개 사업 · 473명 참여</li>
+        </ul>
+      </div>
+      <div class="type-card job">
+        <h3>취업알선형</h3>
+        <p>지역 내 수요처를 발굴하여 어르신을 실제 일자리로 연결하는 유형입니다. 화천시니어클럽은 무료직업소개 사업자로 신고하고 이 활동을 운영하고 있습니다.</p>
+        <ul>
+          <li>수요처 발굴 및 상담</li>
+          <li>구인·구직 연계, 취업 후 사후관리</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:64px;">
+    <div class="visit">
+      <div>
+        <h2>오시는 길</h2>
+        <p class="addr">강원특별자치도 화천군 화천읍 강변로 171</p>
+        <p>대표전화 033-442-1218 / 442-1219 / 442-1220</p>
+        <p>팩스 033-442-1219 · 이메일 senior4321@naver.com</p>
+      </div>
+      <div class="visit-map">
+        <img src="images/map-location.png" alt="화천시니어클럽 오시는 길 안내도 — 용신교와 배머리교 사이, 화천군장애인재활센터 옆 대시양아파트 인근에 위치하며 화천성당·한국전력공사·화천초등학교 등 주변 시설 표시">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 화천시니어클럽. All rights reserved.</div>
+    <div class="foot-links">
+      <a href="about.html#notice">이용의 한계와 법적고지</a>
+      <a href="about.html">이용안내</a>
+      <a href="join.html#contact">문의하기</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
