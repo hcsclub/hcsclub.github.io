@@ -129,46 +129,47 @@
   }
   .section-head .more:hover{border-color:var(--forest-dark);}
 
-  /* ---------- Business gallery ---------- */
+  /* ---------- Business card grid ---------- */
   .gallery{
     display:grid;
-    grid-template-columns:repeat(6,1fr);
-    grid-auto-rows:14px;
-    gap:16px;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
   }
   .gcard{
-    position:relative;border-radius:6px;overflow:hidden;
-    background:var(--forest-dark);
-    grid-column:span 3;grid-row:span 18;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:box-shadow .2s, transform .2s;
   }
-  .gcard.wide{grid-column:span 6;grid-row:span 22;}
-  .gcard.tall{grid-row:span 22;}
-  .gcard img{
-    width:100%;height:100%;object-fit:cover;
-    position:absolute;inset:0;
+  .gcard:hover{box-shadow:0 10px 24px rgba(43,38,32,0.1);transform:translateY(-2px);}
+  .gcard-thumb{
+    position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--forest-dark);
   }
-  .gcard-fade{
-    position:absolute;left:0;right:0;bottom:0;height:65%;
-    background:linear-gradient(to top, rgba(32,62,48,0.92) 0%, rgba(32,62,48,0.15) 62%, rgba(32,62,48,0) 100%);
+  .gcard-thumb img{width:100%;height:100%;object-fit:cover;}
+  .gcard-body{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;}
+  .gcard-body .tag{
+    display:inline-block;align-self:flex-start;
+    font-size:.8rem;font-weight:700;color:var(--forest-dark);
+    background:#E7EFE4;padding:3px 11px;border-radius:999px;margin-bottom:10px;
   }
-  .gcard-label{
-    position:absolute;left:0;right:0;bottom:0;padding:18px 20px;color:#fff;z-index:2;
+  .gcard-body.market .tag{color:#7A4F14;background:#F3E4C8;}
+  .gcard-body h3{font-size:1.15rem;margin-bottom:6px;}
+  .gcard-body p{color:var(--ink-soft);font-size:.95rem;margin:0 0 16px;}
+  .gcard-body .detail{
+    margin-top:auto;display:inline-block;align-self:flex-start;
+    font-size:.92rem;font-weight:700;color:var(--forest-dark);
+    border:1.5px solid var(--forest);border-radius:6px;
+    padding:8px 16px;text-decoration:none;transition:background .2s, color .2s;
   }
-  .gcard-label .tag{
-    display:inline-block;font-size:.82rem;font-weight:700;color:var(--ochre);
-    background:rgba(255,255,255,0.14);padding:3px 10px;border-radius:999px;margin-bottom:8px;
-  }
-  .gcard-label h3{color:#fff;font-size:1.15rem;}
-  .gcard.wide .gcard-label h3{font-size:1.5rem;}
+  .gcard-body .detail:hover{background:var(--forest);color:#fff;}
 
-  @media (max-width:760px){
-    .gallery{
-      display:flex;flex-direction:column;gap:18px;
-    }
-    .gcard{
-      grid-column:unset !important;grid-row:unset !important;
-      aspect-ratio:3/2;width:100%;
-    }
+  @media (max-width:900px){
+    .gallery{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .gallery{grid-template-columns:1fr;}
   }
 
   /* ---------- Program types ---------- */
@@ -265,57 +266,75 @@
     </div>
 
     <div class="gallery">
-      <div class="gcard wide">
-        <img src="images/business-volunteer.jpg" alt="공공시설봉사 사업단 어르신들이 노란 조끼를 입고 지역사회 봉사활동을 위해 모여 있는 모습">
-        <div class="gcard-fade"></div>
-        <div class="gcard-label">
+      <div class="gcard">
+        <div class="gcard-thumb">
+          <img src="images/business-volunteer.jpg" alt="공공시설봉사 사업단 어르신들이 노란 조끼를 입고 지역사회 봉사활동을 위해 모여 있는 모습">
+        </div>
+        <div class="gcard-body">
           <span class="tag">공익형</span>
-          <h3>공공시설봉사 — 관내 공원·도로 환경정화</h3>
+          <h3>공공시설봉사</h3>
+          <p>관내 공원·도로 환경정화</p>
+          <a href="programs.html" class="detail">상세보기</a>
         </div>
       </div>
 
       <div class="gcard">
-        <img src="images/business-beansprout.jpg" alt="우리동네 콩나물 사업단 어르신들이 무농약 콩나물을 세척하고 포장하는 모습">
-        <div class="gcard-fade"></div>
-        <div class="gcard-label">
+        <div class="gcard-thumb">
+          <img src="images/business-beansprout.jpg" alt="우리동네 콩나물 사업단 어르신들이 무농약 콩나물을 세척하고 포장하는 모습">
+        </div>
+        <div class="gcard-body market">
           <span class="tag">시장형</span>
           <h3>우리동네콩나물</h3>
+          <p>무농약 콩나물재배</p>
+          <a href="programs.html" class="detail">상세보기</a>
         </div>
       </div>
 
       <div class="gcard">
-        <img src="images/business-nurungji.jpg" alt="할머니 누룽지 사업단 어르신들이 위생모를 쓰고 누룽지와 쌀과자를 만드는 모습">
-        <div class="gcard-fade"></div>
-        <div class="gcard-label">
+        <div class="gcard-thumb">
+          <img src="images/business-nurungji.jpg" alt="할머니 누룽지 사업단 어르신들이 위생모를 쓰고 누룽지와 쌀과자를 만드는 모습">
+        </div>
+        <div class="gcard-body market">
           <span class="tag">시장형</span>
           <h3>할머니 누룽지쌀과자</h3>
+          <p>현미누룽지 및 오곡쌀과자 제조</p>
+          <a href="programs.html" class="detail">상세보기</a>
         </div>
       </div>
 
       <div class="gcard">
-        <img src="images/business-farming.jpg" alt="휴경지경작 사업단 어르신들이 비닐하우스에서 아스파라거스를 수확하는 모습">
-        <div class="gcard-fade"></div>
-        <div class="gcard-label">
+        <div class="gcard-thumb">
+          <img src="images/business-farming.jpg" alt="휴경지경작 사업단 어르신들이 비닐하우스에서 아스파라거스를 수확하는 모습">
+        </div>
+        <div class="gcard-body market">
           <span class="tag">시장형</span>
-          <h3>휴경지경작 — 아스파라거스·비타민나무</h3>
+          <h3>휴경지경작사업</h3>
+          <p>아스파라거스·비타민나무 재배</p>
+          <a href="programs.html" class="detail">상세보기</a>
         </div>
       </div>
 
       <div class="gcard">
-        <img src="images/business-knitting.jpg" alt="뜨개매듭 사업단 어르신들이 모여 앉아 손뜨개로 생활용품을 만드는 모습">
-        <div class="gcard-fade"></div>
-        <div class="gcard-label">
+        <div class="gcard-thumb">
+          <img src="images/business-knitting.jpg" alt="뜨개매듭 사업단 어르신들이 모여 앉아 손뜨개로 생활용품을 만드는 모습">
+        </div>
+        <div class="gcard-body market">
           <span class="tag">시장형</span>
           <h3>뜨개매듭사업</h3>
+          <p>손바느질을 이용한 생활용품제작</p>
+          <a href="programs.html" class="detail">상세보기</a>
         </div>
       </div>
 
       <div class="gcard">
-        <img src="images/business-paperbag.jpg" alt="종이사랑 사업단 어르신들이 종이가방을 수작업으로 제작하는 모습">
-        <div class="gcard-fade"></div>
-        <div class="gcard-label">
+        <div class="gcard-thumb">
+          <img src="images/business-paperbag.jpg" alt="종이사랑 사업단 어르신들이 종이가방을 수작업으로 제작하는 모습">
+        </div>
+        <div class="gcard-body market">
           <span class="tag">시장형</span>
           <h3>종이사랑사업</h3>
+          <p>종이가방 수작업 및 판촉물 도·소매</p>
+          <a href="programs.html" class="detail">상세보기</a>
         </div>
       </div>
     </div>
