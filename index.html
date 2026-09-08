@@ -77,25 +77,18 @@
   .nav-toggle{display:none;}
 
   /* ---------- Hero ---------- */
-  .hero{position:relative;overflow:hidden;}
+  .hero{position:relative;}
   .hero-media{
     position:relative;
     width:100%;
-    aspect-ratio:16/9;
-    max-height:560px;
-    overflow:hidden;
+    line-height:0;
   }
   .hero-media img{
-    width:100%;height:100%;object-fit:cover;object-position:center 40%;
-  }
-  .hero-fade{
-    position:absolute;left:0;right:0;bottom:0;height:45%;
-    background:linear-gradient(to bottom, rgba(247,241,227,0) 0%, var(--cream) 92%);
-    pointer-events:none;
+    width:100%;height:auto;display:block;
   }
   .hero-copy{
     max-width:var(--maxw);margin:0 auto;padding:0 28px;
-    margin-top:-38px;position:relative;z-index:2;
+    margin-top:34px;position:relative;z-index:2;
     padding-bottom:8px;
   }
   .hero-copy p{
@@ -241,7 +234,6 @@
   <section class="hero">
     <div class="hero-media">
       <img src="images/hero-main.jpg" alt="화천시니어클럽 — 일하는 100세, 아름다운 시니어. 화천의 산과 하천을 배경으로 한 수채화 일러스트">
-      <div class="hero-fade"></div>
     </div>
     <div class="hero-copy">
       <p>지역내 만 60세 이상 어르신들에게 일할 기회와 일자리를 공급하여, 소득창출과 사회참여를 통해 활기차고 행복한 노후를 지원하는 화천군 노인일자리 전담기관입니다.</p>
