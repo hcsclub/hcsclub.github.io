@@ -42,14 +42,15 @@
   .nav-row{
     display:flex;align-items:center;justify-content:space-between;
     padding:16px 28px;max-width:var(--maxw);margin:0 auto;
+    position:relative;flex-wrap:nowrap;gap:12px;
   }
   .brand{
-    display:flex;align-items:center;gap:10px;
+    display:flex;align-items:center;gap:10px;white-space:nowrap;flex:0 0 auto;
     font-family:'Noto Serif KR', serif;
     font-weight:700;font-size:1.45rem;color:var(--forest-dark);
     text-decoration:none;letter-spacing:-0.01em;
   }
-  .brand img{height:40px;width:auto;display:block;}
+  .brand img{height:40px;width:auto;display:block;flex:0 0 auto;}
   .brand span{color:var(--berry);}
   nav ul{
     list-style:none;display:flex;gap:8px;margin:0;padding:0;
@@ -61,7 +62,29 @@
     transition:background .2s, color .2s;
   }
   nav a:hover, nav a:focus-visible{background:var(--forest);color:#fff;}
-  .nav-toggle{display:none;}
+
+  .nav-toggle{
+    display:none;width:40px;height:40px;flex:0 0 auto;
+    border:none;background:none;cursor:pointer;padding:0;
+    flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  }
+  .nav-toggle span{width:24px;height:2px;border-radius:2px;background:var(--forest-dark);display:block;}
+
+  @media (max-width:760px){
+    .nav-toggle{display:flex;}
+    nav ul{
+      display:none;
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:2px;
+      background:var(--cream);
+      border-bottom:1px solid var(--line);
+      padding:10px 20px 22px;
+      box-shadow:0 14px 26px rgba(43,38,32,0.14);
+      z-index:40;
+    }
+    nav ul.open{display:flex;}
+    nav a{width:100%;padding:13px 14px;font-size:1.05rem;border-radius:8px;}
+  }
 
   /* ---------- Hero ---------- */
   .hero{position:relative;padding:48px 0 8px;}
@@ -208,15 +231,13 @@
   .foot-links a:first-child{margin-left:0;}
   .foot-links a:hover{color:var(--forest-dark);}
   @media (max-width:600px){
-    nav ul{gap:2px;}
-    nav a{padding:8px 10px;font-size:.92rem;}
     .brand{font-size:1.2rem;}
     .brand img{height:32px;}
     body{font-size:16.5px;}
   }
 
   /* ---------- Sub-page header ---------- */
-  .page-header{padding:44px 0 8px;}
+  .page-header{padding-top:44px;padding-bottom:8px;}
   .page-header .crumb{
     font-size:.92rem;color:var(--ink-soft);margin-bottom:14px;
   }
@@ -237,7 +258,7 @@
   .subnav a:hover{background:var(--forest);color:#fff;border-color:var(--forest);}
 
   /* ---------- Generic block heading ---------- */
-  .block{padding:52px 0;border-top:1px solid var(--line);}
+  .block{padding-top:52px;padding-bottom:52px;border-top:1px solid var(--line);}
   .block:first-of-type{border-top:none;}
   .block h2{font-size:1.55rem;margin-bottom:18px;}
   .block .sub{color:var(--ink-soft);font-size:1.02rem;margin:-8px 0 20px;max-width:720px;}
