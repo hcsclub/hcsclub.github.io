@@ -321,3 +321,31 @@
   }
   .contact-box h3{color:#fff;font-size:1.3rem;margin-bottom:12px;}
   .contact-box p{color:#D8D2BF;margin:0 0 6px;font-size:1.02rem;}
+
+  /* ---------- News (Naver blog) page ---------- */
+  .news-top{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+    margin-bottom:8px;
+  }
+  .news-top .blog-link{
+    display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-weight:700;color:var(--forest-dark);
+    border:2px solid var(--forest);border-radius:8px;padding:10px 18px;font-size:.98rem;
+  }
+  .news-top .blog-link:hover{background:var(--forest);color:#fff;}
+  .news-note{
+    background:#EFE8D4;border-radius:8px;padding:14px 18px;font-size:.92rem;
+    color:var(--ink-soft);margin:18px 0 30px;
+  }
+  .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px;}
+  .news-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:22px 24px;transition:box-shadow .2s, transform .2s;
+  }
+  .news-card:hover{box-shadow:0 10px 24px rgba(43,38,32,0.1);transform:translateY(-2px);}
+  .news-card h3{font-size:1.08rem;margin-bottom:6px;line-height:1.4;}
+  .news-card h3 a{color:var(--forest-dark);text-decoration:none;}
+  .news-card h3 a:hover{text-decoration:underline;}
+  .news-card .meta{font-size:.85rem;color:var(--sage);font-weight:500;margin-bottom:8px;}
+  .news-card p{color:var(--ink-soft);font-size:.95rem;margin:0;}
+  @media (max-width:700px){.news-grid{grid-template-columns:1fr;}}
