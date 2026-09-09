@@ -44,10 +44,12 @@
     padding:16px 28px;max-width:var(--maxw);margin:0 auto;
   }
   .brand{
+    display:flex;align-items:center;gap:10px;
     font-family:'Noto Serif KR', serif;
     font-weight:700;font-size:1.45rem;color:var(--forest-dark);
     text-decoration:none;letter-spacing:-0.01em;
   }
+  .brand img{height:40px;width:auto;display:block;}
   .brand span{color:var(--berry);}
   nav ul{
     list-style:none;display:flex;gap:8px;margin:0;padding:0;
@@ -209,6 +211,7 @@
     nav ul{gap:2px;}
     nav a{padding:8px 10px;font-size:.92rem;}
     .brand{font-size:1.2rem;}
+    .brand img{height:32px;}
     body{font-size:16.5px;}
   }
 
