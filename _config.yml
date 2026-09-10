@@ -3,15 +3,17 @@ description: 화천군 노인일자리 전담기관 화천시니어클럽 공식
 url: "https://hclub.kr"
 
 markdown: kramdown
-permalink: /news/:year/:month/:day/:title/
 
-# _posts 폴더의 글은 별도로 layout을 적지 않아도 자동으로 post 레이아웃(헤더/푸터 포함)을 사용합니다.
+# _posts 폴더의 글은 별도로 layout이나 주소 형식을 적지 않아도
+# 자동으로 post 레이아웃(헤더/푸터 포함) + /news/연도/월/일/제목/ 형식의 주소를 사용합니다.
+# (다른 일반 페이지(about.html 등)에는 영향을 주지 않도록, 여기서 posts에만 한정해 지정합니다.)
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+      permalink: /news/:year/:month/:day/:title/
 
 # 소식(뉴스) 목록 페이지 한 페이지당 카드 개수 (가로 2 x 세로 3)
 posts_per_page: 6
