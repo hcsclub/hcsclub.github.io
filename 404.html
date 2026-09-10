@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>페이지를 찾을 수 없습니다 | 화천시니어클럽</title>
+<meta name="description" content="요청하신 페이지를 찾을 수 없습니다. 화천시니어클럽 홈페이지 첫 화면으로 이동해 주세요.">
+<link rel="icon" href="favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .notfound{
+    min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:80px 28px;
+  }
+  .notfound .code{
+    font-family:'Noto Serif KR', serif;font-weight:700;color:var(--sage);
+    font-size:5rem;line-height:1;margin-bottom:8px;
+  }
+  .notfound h1{font-size:1.7rem;margin-bottom:14px;}
+  .notfound p{font-size:1.08rem;color:var(--ink-soft);max-width:480px;margin:0 0 30px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a href="index.html" class="brand"><img src="images/logo.png" alt="화천시니어클럽 로고">화천<span>시니어클럽</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav aria-label="주 메뉴">
+      <ul>
+        <li><a href="about.html">기관소개</a></li>
+        <li><a href="programs.html">사업안내</a></li>
+        <li><a href="join.html">참여안내</a></li>
+        <li><a href="news.html">소식</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="notfound">
+    <div class="code">404</div>
+    <h1>요청하신 페이지를 찾을 수 없습니다</h1>
+    <p>주소가 바뀌었거나 삭제된 페이지일 수 있습니다. 아래 버튼을 눌러 첫 화면으로 돌아가 주세요.</p>
+    <a href="index.html" class="btn btn-primary">첫 화면으로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 화천시니어클럽. All rights reserved.</div>
+    <div class="foot-links">
+      <a href="about.html">이용의 한계와 법적고지</a>
+      <a href="about.html">이용안내</a>
+      <a href="join.html#contact">문의하기</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
