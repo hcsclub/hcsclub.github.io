@@ -1,101 +1,43 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>소식 | 화천시니어클럽</title>
-<meta name="description" content="화천시니어클럽의 소식을 네이버 블로그 글로 안내합니다.">
-<meta property="og:title" content="소식 | 화천시니어클럽">
-<meta property="og:description" content="화천시니어클럽 네이버 블로그 소식 모음">
-<meta property="og:type" content="website">
-<meta property="og:image" content="images/hero-illustration.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+---
+layout: default
+nav: news
+title: 소식
+description: 화천시니어클럽의 소식을 안내합니다.
+---
+<!--
+  [운영자 안내 — 새 소식 올리는 법]
+  1. _posts 폴더 안에 "연도-월-일-제목.md" 형식으로 새 파일을 만듭니다.
+     예: _posts/2026-09-15-가을맞이-행사.md
+  2. 파일 맨 위에 아래처럼 제목을 적고, 그 아래에 글 내용을 씁니다.
+     ---
+     title: 가을맞이 행사 안내
+     ---
+     여기부터 글 내용을 적습니다. 첫 문단이 소식 목록 카드의 요약문으로 자동 사용됩니다.
+  3. 저장(Commit)하면 이 페이지에 자동으로 새 카드가 추가됩니다. 별도로 이 파일을 수정할 필요는 없습니다.
+  4. 글이 12개를 넘어서 3페이지가 필요해지면, news/page2.html 파일을 복사해서
+     news/page3.html을 만들고, 안에 있는 offset 숫자만 6에서 12로 바꿔주세요.
+-->
 
-<header>
-  <div class="nav-row">
-    <a href="index.html" class="brand"><img src="images/logo.png" alt="화천시니어클럽 로고">화천<span>시니어클럽</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav aria-label="주 메뉴">
-      <ul>
-        <li><a href="about.html">기관소개</a></li>
-        <li><a href="programs.html">사업안내</a></li>
-        <li><a href="join.html">참여안내</a></li>
-        <li><a href="news.html" aria-current="page">소식</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<div class="wrap page-header">
+  <p class="crumb"><a href="/index.html">홈</a> · 소식</p>
+  <h1>화천시니어클럽 소식</h1>
+</div>
 
-<main>
-
-  <div class="wrap page-header">
-    <p class="crumb"><a href="index.html">홈</a> · 소식</p>
-    <h1>화천시니어클럽 소식</h1>
+<section class="block wrap" style="border-top:none;">
+  {% assign paged_posts = site.posts | slice: 0, 6 %}
+  <div class="news-grid">
+    {% for post in paged_posts %}
+    <div class="news-card">
+      <div class="meta">{{ post.date | date: "%Y.%m.%d" }}</div>
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 90 }}</p>
+    </div>
+    {% endfor %}
   </div>
 
-  <section class="block wrap" style="border-top:none;">
-    <div class="news-top">
-      <h2 style="margin:0;">최근 소식</h2>
-    </div>
+  {% if paged_posts.size == 0 %}
+  <p style="color:var(--ink-soft);">아직 등록된 소식이 없습니다.</p>
+  {% endif %}
 
-    <!--
-      [운영자 안내]
-      새 글을 네이버 블로그에 올리신 뒤, 아래 news-card 하나를 복사해서
-      이 목록 맨 위에 붙여넣고 제목·날짜·요약·링크(href)만 바꿔주세요.
-      href는 방금 발행한 블로그 글의 실제 주소로 바꿔야 링크가 정확히 연결됩니다.
-      (지금은 예시로 블로그 대문 주소를 넣어두었습니다.)
-    -->
-    <div class="news-grid">
-      <div class="news-card">
-        <div class="meta">화천시니어클럽 블로그 · 2026.09.09</div>
-        <h3><a href="https://blog.naver.com/hynskim3112" target="_blank" rel="noopener">화천시니어클럽과 함께하는 가을 소풍</a></h3>
-        <p>지난주 어르신들과 함께 가을 소풍을 다녀왔습니다. 화천의 단풍과 함께한 즐거운 하루를 소개합니다…</p>
-      </div>
-
-      <div class="news-card">
-        <div class="meta">화천시니어클럽 블로그 · 2026.09.09</div>
-        <h3><a href="https://blog.naver.com/hynskim3112" target="_blank" rel="noopener">새로운 노인일자리 사업 참여자 모집 안내</a></h3>
-        <p>2026년 하반기 노인일자리 사업 참여자를 모집합니다. 참여를 원하시는 어르신은 아래 글에서 자세한 내용을 확인해 주세요…</p>
-      </div>
-
-      <div class="news-card">
-        <div class="meta">화천시니어클럽 블로그 · 2026.09.09</div>
-        <h3><a href="https://blog.naver.com/hynskim3112" target="_blank" rel="noopener">사업단 현장 이야기</a></h3>
-        <p>사업단 어르신들이 실제로 일하는 모습과 생생한 목소리를 전해드립니다…</p>
-      </div>
-
-      <div class="news-card">
-        <div class="meta">화천시니어클럽 블로그 · 2026.09.09</div>
-        <h3><a href="https://blog.naver.com/hynskim3112" target="_blank" rel="noopener">새로운 소식을 준비 중입니다</a></h3>
-        <p>이 카드를 복사해서 새 소식을 계속 추가해 나가시면 됩니다…</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap foot-row">
-    <div>© 2026 화천시니어클럽. All rights reserved.</div>
-    <div class="foot-links">
-      <a href="about.html">이용의 한계와 법적고지</a>
-      <a href="about.html">이용안내</a>
-      <a href="join.html#contact">문의하기</a>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js" defer></script>
-</body>
-</html>
+  {% include pager.html current=1 %}
+</section>
