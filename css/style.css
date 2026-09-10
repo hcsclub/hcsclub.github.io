@@ -300,9 +300,14 @@
   @media (max-width:560px){.org-grid{grid-template-columns:1fr;}}
 
   /* ---------- Program detail table/cards ---------- */
-  .prog-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.98rem;}
-  .prog-table th, .prog-table td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;}
+  .prog-table{width:100%;min-width:680px;border-collapse:collapse;margin-top:10px;font-size:.98rem;table-layout:fixed;}
+  .prog-table th, .prog-table td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;word-break:keep-all;}
   .prog-table th{background:#EFE8D4;color:var(--forest-dark);}
+  .prog-table th:nth-child(1), .prog-table td:nth-child(1){width:11%;}
+  .prog-table th:nth-child(2), .prog-table td:nth-child(2){width:14%;}
+  .prog-table th:nth-child(3), .prog-table td:nth-child(3){width:27%;}
+  .prog-table th:nth-child(4), .prog-table td:nth-child(4){width:32%;}
+  .prog-table th:nth-child(5), .prog-table td:nth-child(5){width:16%;}
   .prog-table td.type-public{border-left:4px solid var(--forest);}
   .prog-table td.type-market{border-left:4px solid var(--ochre);}
   .table-scroll{overflow-x:auto;}
