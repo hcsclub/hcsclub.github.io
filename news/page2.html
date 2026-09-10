@@ -1,0 +1,26 @@
+---
+layout: default
+nav: news
+title: 소식 (2페이지)
+description: 화천시니어클럽의 소식을 안내합니다.
+permalink: /news/page2.html
+---
+<div class="wrap page-header">
+  <p class="crumb"><a href="/index.html">홈</a> · 소식</p>
+  <h1>화천시니어클럽 소식</h1>
+</div>
+
+<section class="block wrap" style="border-top:none;">
+  {% assign paged_posts = site.posts | slice: 6, 6 %}
+  <div class="news-grid">
+    {% for post in paged_posts %}
+    <div class="news-card">
+      <div class="meta">{{ post.date | date: "%Y.%m.%d" }}</div>
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 90 }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% include pager.html current=2 %}
+</section>
