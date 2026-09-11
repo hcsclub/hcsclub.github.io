@@ -397,8 +397,8 @@
 
   /* ---------- 갤러리 ---------- */
   .gallery-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px auto 0;
-    max-width:640px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px auto 0;
+    max-width:900px;
   }
   .gallery-item{
     aspect-ratio:1/1;overflow:hidden;border-radius:8px;cursor:pointer;
@@ -408,6 +408,7 @@
     width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s;
   }
   .gallery-item:hover img{transform:scale(1.06);}
+  @media (max-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:700px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
   @media (max-width:420px){.gallery-grid{grid-template-columns:1fr;}}
 
