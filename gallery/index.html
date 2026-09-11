@@ -1,0 +1,36 @@
+---
+layout: default
+nav: gallery
+title: 갤러리
+description: 화천시니어클럽 활동 사진을 모아 보여주는 갤러리입니다.
+og_image: hero-illustration.jpg
+---
+<!--
+  [운영자 안내 — 사진 추가하는 법]
+  1. 사진 파일을 /images 폴더에 올립니다.
+  2. 같은 폴더에 있는 gallery-data.js 파일을 열어서, 아래처럼 한 줄만 추가합니다.
+     { src: "/images/파일이름.jpg", alt: "사진 설명" },
+  3. 저장(Commit)하면 갤러리에 자동으로 추가됩니다.
+  4. 사진이 9장을 넘으면 아래에 동그란 페이지 번호가 자동으로 나타납니다. HTML은 따로 손댈 필요 없습니다.
+-->
+
+<div class="wrap page-header">
+  <p class="crumb"><a href="/index.html">홈</a> · 갤러리</p>
+  <h1>갤러리</h1>
+  <p class="lead">화천시니어클럽 활동 사진을 모아봤습니다. 사진을 누르면 크게 볼 수 있습니다.</p>
+</div>
+
+<section class="block wrap" style="border-top:none;">
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <div class="gallery-dots" id="galleryDots"></div>
+</section>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
+  <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="이전 사진">&#10094;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="다음 사진">&#10095;</button>
+</div>
+
+<script src="/gallery/gallery-data.js"></script>
+<script src="/js/gallery.js" defer></script>
