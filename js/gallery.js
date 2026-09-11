@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var dotsWrap = document.getElementById('galleryDots');
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCaption = document.getElementById('lightboxCaption');
   var closeBtn = document.getElementById('lightboxClose');
   var prevBtn = document.getElementById('lightboxPrev');
   var nextBtn = document.getElementById('lightboxNext');
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var photo = photos[currentPhotoIndex];
     lightboxImg.src = photo.src;
     lightboxImg.alt = photo.alt || '';
+    lightboxCaption.textContent = photo.alt || '';
   }
 
   function closeLightbox() {
