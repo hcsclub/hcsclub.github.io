@@ -397,7 +397,8 @@
 
   /* ---------- 갤러리 ---------- */
   .gallery-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px auto 0;
+    max-width:640px;
   }
   .gallery-item{
     aspect-ratio:1/1;overflow:hidden;border-radius:8px;cursor:pointer;
