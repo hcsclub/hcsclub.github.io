@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var PER_PAGE = 9; // 가로 3 x 세로 3
+  var PER_PAGE = 12; // 가로 4 x 세로 3
 
-     var photos = (typeof GALLERY_PHOTOS !== 'undefined') ? GALLERY_PHOTOS : [];
+  var photos = (typeof GALLERY_PHOTOS !== 'undefined') ? GALLERY_PHOTOS : [];
   var grid = document.getElementById('galleryGrid');
   if (!grid) return; // 갤러리 페이지가 아니면 아무것도 하지 않음
 
