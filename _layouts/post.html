@@ -12,6 +12,19 @@ nav: news
   {{ content }}
 </article>
 
+<section class="wrap comments-section">
+  <h2 class="comments-heading">댓글</h2>
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="여기에-App-ID-입력"
+    data-page-id="{{ page.url }}"
+    data-page-url="{{ site.url }}{{ page.url }}"
+    data-page-title="{{ page.title }}"
+    data-theme="light"
+  ></div>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</section>
+
 <div class="wrap" style="padding-bottom:64px;">
   <a href="/news/" class="btn btn-outline">← 소식 목록으로</a>
 </div>
