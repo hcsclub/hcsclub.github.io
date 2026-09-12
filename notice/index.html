@@ -1,0 +1,68 @@
+---
+layout: default
+nav: notice
+title: 공지사항
+description: 화천시니어클럽 공지사항입니다.
+---
+<!--
+  [운영자 안내 — 공지사항 올리는 법]
+  1. _notices 폴더 안에 새 파일을 만듭니다. 파일 이름은 자유롭게 지으시되,
+     맨 앞에 날짜를 붙여두면(예: 2026-09-15-행사안내.md) 나중에 찾기 편합니다.
+  2. 파일 맨 위에 이렇게 적습니다.
+     ---
+     title: 제목
+     date: 2026-09-15
+     ---
+     그 아래부터 공지 내용을 씁니다.
+  3. 저장(Commit)하면 이 페이지에 자동으로 카드가 추가됩니다.
+  4. 공지가 9개를 넘어서 2페이지가 필요해지면, notice/page2.html 파일을 만들어야 합니다.
+     news/page2.html 파일을 복사해서 만든 뒤, "site.posts"를 "site.notices"로,
+     "6, 6"으로 된 slice 숫자를 "9, 9"로 바꿔주면 됩니다.
+-->
+
+<div class="wrap page-header">
+  <p class="crumb"><a href="/index.html">홈</a> · 공지사항</p>
+  <h1>공지사항</h1>
+</div>
+
+<section class="block wrap" style="border-top:none;">
+  {% assign sorted_notices = site.notices | sort: 'date' | reverse %}
+  {% assign paged_notices = sorted_notices | slice: 0, 9 %}
+
+  <div class="notice-grid">
+    {% for notice in paged_notices %}
+    <div class="notice-card" data-notice-id="{{ forloop.index0 }}" tabindex="0" role="button">
+      <div class="notice-card-title">{{ notice.title }}</div>
+      <div class="notice-card-date">{{ notice.date | date: "%Y.%m.%d" }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if paged_notices.size == 0 %}
+  <p style="color:var(--ink-soft);">아직 등록된 공지사항이 없습니다.</p>
+  {% endif %}
+
+  {% include notice-pager.html current=1 %}
+
+  <!-- 화면에는 안 보이고, 카드를 클릭했을 때 팝업에 채워 넣을 원본 내용입니다. -->
+  <div id="noticeData" style="display:none;">
+    {% for notice in paged_notices %}
+    <div class="notice-full" data-notice-id="{{ forloop.index0 }}">
+      <div class="notice-full-title">{{ notice.title }}</div>
+      <div class="notice-full-date">{{ notice.date | date: "%Y.%m.%d" }}</div>
+      <div class="notice-full-body">{{ notice.content }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="notice-modal-overlay" id="noticeModal">
+  <div class="notice-modal-box">
+    <button class="notice-modal-close" id="noticeModalClose" aria-label="닫기">&times;</button>
+    <h2 class="notice-modal-title" id="noticeModalTitle"></h2>
+    <p class="notice-modal-date" id="noticeModalDate"></p>
+    <div class="notice-modal-body" id="noticeModalBody"></div>
+  </div>
+</div>
+
+<script src="/js/notice.js" defer></script>
