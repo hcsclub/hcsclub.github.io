@@ -1,0 +1,16 @@
+{% assign total_notices = site.notices | size %}
+{% assign per_page = 9 %}
+{% assign total_pages = total_notices | plus: per_page | minus: 1 | divided_by: per_page %}
+{% if total_pages > 1 %}
+<nav class="pager" aria-label="공지사항 페이지 번호">
+  {% for i in (1..total_pages) %}
+    {% if i == include.current %}
+      <span class="current">{{ i }}</span>
+    {% elsif i == 1 %}
+      <a href="/notice/">{{ i }}</a>
+    {% else %}
+      <a href="/notice/page{{ i }}.html">{{ i }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}
