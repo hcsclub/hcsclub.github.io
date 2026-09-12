@@ -1,12 +1,6 @@
 // 갤러리에 보여줄 사진 목록입니다.
 // 사진을 추가하려면 이 배열에 한 줄씩 추가하면 됩니다. (순서 = 갤러리에 보이는 순서)
 const GALLERY_PHOTOS = [
-  { src: "/images/yeonsu2.webp", alt: "강원도 시니어클럽 관장 연수 중 토의" },
-  { src: "/images/yeonsu1.webp", alt: "강원도 시니어클럽 관장 연수" },
-  { src: "/images/kongnamul1.webp", alt: "화천시니어클럽 콩나물 작업" },
-  { src: "/images/kongnamul.webp", alt: "화천시니어클럽 콩나물 상품" },
-  { src: "/images/box2.webp", alt: "어르신들 박스작업 장면" },
-  { src: "/images/box1.webp", alt: "어르신들 박스작업" },
   { src: "/images/business-volunteer.jpg", alt: "공공시설봉사 사업단 봉사활동 모습" },
   { src: "/images/business-beansprout.jpg", alt: "우리동네콩나물 사업단 콩나물 세척 모습" },
   { src: "/images/business-nurungji.jpg", alt: "할머니 누룽지쌀과자 사업단 제조 모습" },
