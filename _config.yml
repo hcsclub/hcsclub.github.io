@@ -4,6 +4,12 @@ url: "https://hclub.kr"
 
 markdown: kramdown
 
+# 사이트맵(sitemap.xml)과 RSS 피드(feed.xml)를 자동으로 만들어주는 플러그인입니다.
+# 둘 다 깃허브 페이지에서 정식으로 지원하는 플러그인이라 별도 설치 없이 이 두 줄만으로 작동합니다.
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
 # 공지사항용 폴더(_notices)를 사용하겠다고 지킬에게 알려주는 설정입니다.
 # output: false → 공지사항 하나하나가 별도 페이지 주소를 갖지 않고,
 # 목록 페이지 안에서 팝업(모달)으로만 보여지도록 합니다.
